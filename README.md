@@ -1,6 +1,6 @@
 # Active Campaign v3 PHP Wrapper
 
-Unofficial PHP Wrapper for ActiveCampaign API v3.
+Unofficial PHP Wrapper for ActiveCampaign API v3 - Solcre.
 
 ## Installation:
 ```

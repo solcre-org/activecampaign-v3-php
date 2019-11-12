@@ -23,7 +23,9 @@ class Segments extends Resource
     {
         $req = $this->client
             ->getClient()
-            ->get('/api/3/segments/' . $id)->getBody()->getContents();
+            ->get('/api/3/segments/' . $id);
+
+        return $req->getBody()->getContents();
     }
 
     /**
@@ -35,11 +37,20 @@ class Segments extends Resource
      * @param  $offset
      * @return string
      */
-    public function listAll()
+    public function listAll(array $query_params = [], $limit = 20, $offset = 0)
     {
-        return $this->client
+        $query_params = array_merge($query_params, [
+            'limit'  => $limit,
+            'offset' => $offset
+        ]);
+
+        $req = $this->client
             ->getClient()
-            ->get('/api/3/segments')->getBody()->getContents();
+            ->get('/api/3/segments', [
+                'query' => $query_params
+            ]);
+
+        return $req->getBody()->getContents();
     }
 
 }

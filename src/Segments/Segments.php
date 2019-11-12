@@ -16,10 +16,10 @@ class Segments extends Resource
      * Get a segment
      * @see https://developers.activecampaign.com/reference#retrieve-a-segment
      *
-     * @param int $id
+     * @param  $id
      * @return string
      */
-    public function get(int $id)
+    public function get($id)
     {
         $req = $this->client
             ->getClient()
@@ -33,11 +33,11 @@ class Segments extends Resource
      * @see https://developers.activecampaign.com/reference#list-all-segments
      *
      * @param array $query_params
-     * @param int $limit
-     * @param int $offset
+     * @param  $limit
+     * @param  $offset
      * @return string
      */
-    public function listAll(array $query_params = [], int $limit = 20, int $offset = 0)
+    public function listAll(array $query_params = [], $limit = 20, $offset = 0)
     {
         $query_params = array_merge($query_params, [
             'limit'  => $limit,

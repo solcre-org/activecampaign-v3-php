@@ -157,7 +157,7 @@ class Contacts extends Resource
                 'json' => [
                     'contactTag' => [
                         'contact' => $id,
-                        'tag' => $tag_id
+                        'tag'     => $tag_id
                     ]
                 ]
             ]);
@@ -190,10 +190,10 @@ class Contacts extends Resource
      * @param int $offset
      * @return string
      */
-    public function listAll(array $query_params = [], int $limit = 20, int $offset = 0)
+    public function listAll(array $query_params = [], int $limit = null, int $offset = null)
     {
         $query_params = array_merge($query_params, [
-            'limit' => $limit,
+            'limit'  => $limit,
             'offset' => $offset
         ]);
 
@@ -240,8 +240,8 @@ class Contacts extends Resource
                 'json' => [
                     'fieldValue' => [
                         'contact' => $contact_id,
-                        'field' => $field_id,
-                        'value' => $field_value
+                        'field'   => $field_id,
+                        'value'   => $field_value
                     ]
                 ]
             ]);
@@ -256,7 +256,7 @@ class Contacts extends Resource
      * @param int $field_id
      * @return string
      */
-    public function retrieveCustomFieldValue(int $field_id)
+    public function retrieveCustomFieldValue($field_id)
     {
         $req = $this->client
             ->getClient()
@@ -283,8 +283,8 @@ class Contacts extends Resource
                 'json' => [
                     'fieldValue' => [
                         'contact' => $contact_id,
-                        'field' => $field_id,
-                        'value' => $field_value
+                        'field'   => $field_id,
+                        'value'   => $field_value
                     ]
                 ]
             ]);
